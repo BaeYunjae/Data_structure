@@ -47,7 +47,7 @@ int arr[10];
 
 # 동적 배열 선언 방법
 
-- vector 이용
+## vector 이용
 
 	```cpp
 	#include <iostream>
@@ -59,6 +59,11 @@ int arr[10];
 		return 0;
 	}
 	```
+## vector의 함수
+- push_back(x)
+- pop_back()
+- size()
+
 
 <br>
 
