@@ -1,7 +1,9 @@
 # 목차
 1. [STL이란](#stl이란)
 - [vector STL](#vector-stl)
+- [list STL](#list-stl)
 - [stack STL](#stack-stl)
+- [queue STL](#queue-stl)
 2. [iterator](#iterator)
 
 <br>
