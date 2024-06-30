@@ -236,3 +236,62 @@ int main(){
         ```cpp
         	cout << um[K]; // key가 K인 원소의 value 조회 후 출력
         ```
+
+<br>
+
+# map STL
+map은 TreeMap 자료구조로 되어 있다. 
+> **TreeMap**
+- 균형잡힌 이진트리 구조로 데이터들을 관리해주는 자료구조
+- 각 노드에 (key, value) 쌍 형태로 들어가 있어, key를 기준으로 노드의 위치가 결정되고 각 key에 대한 value값을 저장하는 형태 
+- 삽입, 삭제, 탐색 등 모든 함수의 시간복잡도 : **O(logN)**
+```cpp
+#include <iostream>
+#include <map>
+using namespace std;
+
+int main(){
+    map<int, int> m;  // <key 타입, value 타입> 
+    return 0;
+}
+```
+## map의 함수
+- ```m.insert( { K, V } )``` 또는 ```m[K] = V``` : treemap에 쌍 (K, V) 추가 
+- `m.erase(K)` : 현재 treemap에 들어있는 데이터 중 key가 K인 쌍을 찾아 제거
+- `m.find(K)` 또는 `m[K]` : 현재 treemap에 key가 K인 쌍이 있는지 확인
+    - 만약 있다면 해당 iterator 반환, 없다면 `m.end()` 반환
+        - 값이 있다면 `m.find(K) != m.end()` , 없다면 `m.find(K) == m.end()` 만족
+    - pair 타입이므로 아래와 같이 접근 가능
+        - key가 K인 원소의 key 조회
+            
+            ```cpp
+            // 첫번째 방법
+            cout << (m.find(K))->first; 
+            // 두번째 방법
+            cout << (*m.find(K)).first;
+            ```
+            
+        - key가 K인 원소의 value 조회
+            
+            ```cpp
+            // 첫번째 방법
+            cout << (m.find(K))->second; 
+            // 두번째 방법
+            cout << (*m.find(K)).second;  
+            ```
+            
+    - 값만 조회하고 싶다면 `m[K]` 형태로도 이용 가능
+        
+        ```cpp
+        	cout << m[K]; // key가 K인 원소의 value 조회 후 출력
+        ```
+- iterator를 이용한 treemap을 key 기준 오름차순으로 순회 
+    - C++에서는 vector, stack 등의 컨테이너들을 iterator라는 반복자를 이용해 순회가 가능하다.
+    - 그 중에서도 treeamap을 iterator를 이용하여 순회하게 되면, 자동으로 **key 기준 오름차순으로 순회**
+    ```cpp
+    map<int, int>::iterator it;
+    for (it = m.begin(); it != m.end(); it++){
+        cout << (it -> first) << " " << (it -> second) << "\n";
+    }
+    ```
+    - 순회 전에 map이 비어있는지 ```empty()``` 함수나 ```size()```가 0 인지를 통해 확인 가능
